@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../services/api"
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -8,14 +9,19 @@ const Login = () => {
     const [error, setError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
+
+        const navigate = useNavigate();
         e.preventDefault();
         setError("");
         setLoading(true);
 
         try {
-            await api.post("/auth/login", { email, password },{withCredentials:true});
+            await api.post("/auth/login", { email, password }, { withCredentials: true });
 
             alert("Login successful");
+            setTimeout(() => {
+                navigate("/home");
+            }, 800);
         } catch (err: any) {
             setError(err.response?.data?.message || "Login failed");
         } finally {

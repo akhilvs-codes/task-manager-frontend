@@ -25,6 +25,7 @@ const SignUp = () => {
         try {
             await api.post("/auth/signup", {name, email, password });
             alert("Signup successful");
+            
             setOtpSent(true);
         } catch (err: any) {
             setError(err.response?.data?.message || "Signup failed");
