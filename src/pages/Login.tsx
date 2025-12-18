@@ -7,15 +7,18 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
 
-        const navigate = useNavigate();
+        
         e.preventDefault();
         setError("");
         setLoading(true);
 
         try {
+            console.log("authentication");
+            
             await api.post("/auth/login", { email, password }, { withCredentials: true });
 
             alert("Login successful");
