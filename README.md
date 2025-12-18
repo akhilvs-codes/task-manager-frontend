@@ -1,16 +1,26 @@
 Tech Stack
 
 React
+
 Axios
+
 JavaScript
+
 CSS (Responsive Design)
 
+
 Features
+
 User authentication (Login / Register)
+
 OTP-based email verification flow
+
 Create, view, update, and delete tasks
+
 Task status management (Pending / Completed)
+
 Environment Variables
+
 
 
 Installation & Run
